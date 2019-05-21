@@ -1,16 +1,27 @@
-#Como correr los tests de Wasabi
+# Isolated RSK blockchain network
 
-## Prerequisitos
- * Docker Compose
+## Requirements
+  * [Docker Compose](https://docs.docker.com/compose/) >= 1.14.0
 
 ## Building
+You must provide two rskj builds:
+  * rskj-core-0.6.2-ORCHID-all.jar
+  * rskj-core-0.7.0-SNAPSHOT-all.jar
 
-Para levantar el entorno vamos a correr
-`$ docker-compose up -d`
+Once in place, you can build the environment with:
+```shell
+$ docker-compose up -d
+```
 
+## Environment:
+  * 4 full **regtest** nodes
+  * _Second fork_ network upgrade enabled from block number 1000
+  * JSONRPC interface enabled for each node, bindend to local ports from 14444 (miner node) to 14447
+  * All nodes accept `eth` JSONRPC calls
+  * **miner** node is an _autominer_
+  * **miner** node accepts `evm` JSONRPC calls (e.g. `evm_mine`)
 
-# De que está compuesta este entorno:
- * Cuatro nodos: un minero 1.0.0, un full 1.0.0 y 2 full 0.6.2
- * Una interfaz web3 json rpc expuesta en el puerto 4444 para cada nodo
- * Cada nodo comienza con ambos binarios copiados en el filesystem
- * Tiene la configuración de automine habilitada (+evm_mine)
+## Additional considerations
+  * For the automine feature to work, the transaction must be sent to the **miner** node
+  * The nodes start by default on _0.7.0-SNAPSHOT_ version. You can change it by setting the `cmd` configuration option for the service you want to start in a different version (i.e. 0.6.2-ORCHID)
+  * You can change Wasabi network upgrade activation block number by changing the `blockchain.config.hardforkActivationHeights.secondFork` environment variable from `envs/base.env`
