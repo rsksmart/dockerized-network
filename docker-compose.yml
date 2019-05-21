@@ -4,8 +4,8 @@ services:
   miner: 
     build: .
     env_file:
-      - base.env
-      - miner.env
+      - envs/base.env
+      - envs/miner.env
     ports:
       - "14444:4444"
     environment:
@@ -25,8 +25,8 @@ services:
     ports:
       - "14445:4444"
     env_file:
-      - base.env
-      - full.env
+      - envs/base.env
+      - envs/full.env
     environment:
       - peer.privateKey=bc11aaa49180fa3a52398689f62cf556f76094e983b8650b64be410026025998
       - peer.active.0.ip=miner
@@ -45,8 +45,8 @@ services:
     ports:
       - "14446:4444"
     env_file:
-      - base.env
-      - full.env
+      - envs/base.env
+      - envs/full.env
     environment:
       - peer.privateKey=e72187ebcdc91b999b1a0fbdea27a83eddf7faf523f02ac3102a124ea1ccae01
       - peer.active.0.ip=miner
@@ -65,8 +65,8 @@ services:
     ports:
       - "14447:4444"
     env_file:
-      - base.env
-      - full.env
+      - envs/base.env
+      - envs/full.env
     environment:
       - peer.privateKey=418de494ec6e92a0e28976317f37fe35b0a44d2d981eba1074801ca63acb5b56
       - peer.active.0.ip=miner
