@@ -1,0 +1,80 @@
+version: '3.3'
+
+services:
+  miner: 
+    build: .
+    env_file:
+      - base.env
+      - miner.env
+    ports:
+      - "14444:4444"
+    environment:
+      - peer.privateKey=b05323ca7b2892ada7c18ba9ff5993b9b1f4aac2f288bdc08399ba4bbb0038ee
+      - peer.active.0.ip=full1
+      - peer.active.0.port=50501
+      - peer.active.0.nodeId=31406f55bcb3ccd48c9f355852824bd66a50dde50fd150f38efb7dc6df95c929feb9a419269197f7ea5215d09acba7dfda41660b81fb68c6b7cb0d3e6054bdfa
+      - peer.active.1.ip=full2
+      - peer.active.1.port=50501
+      - peer.active.1.nodeId=9b68cbdc64091625feda30476c2c7b10ba43a69b345fbe146f7934f2752c115481f1ec6acb2d5e0f65c34d02080debf10d605d7c483a4bf5932004ad7897330a
+      - peer.active.2.ip=full3
+      - peer.active.2.port=50501
+      - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
+
+  full1:
+    build: .
+    ports:
+      - "14445:4444"
+    env_file:
+      - base.env
+      - full.env
+    environment:
+      - peer.privateKey=bc11aaa49180fa3a52398689f62cf556f76094e983b8650b64be410026025998
+      - peer.active.0.ip=miner
+      - peer.active.0.port=50501
+      - peer.active.0.nodeId=ef0c660f5fe9131e4cfa43e46d61f696534b908fff0f6011fe57c85c3a9424b1ef0a4f454b9eaae162cb7699abd28e2ffc67b9f2b4ae4d0997eb845a2e0b4d9b
+      - peer.active.1.ip=full2
+      - peer.active.1.port=50501
+      - peer.active.1.nodeId=9b68cbdc64091625feda30476c2c7b10ba43a69b345fbe146f7934f2752c115481f1ec6acb2d5e0f65c34d02080debf10d605d7c483a4bf5932004ad7897330a
+      - peer.active.2.ip=full3
+      - peer.active.2.port=50501
+      - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
+
+  full2:
+    build: .
+    command: 0.6.2-ORCHID
+    ports:
+      - "14446:4444"
+    env_file:
+      - base.env
+      - full.env
+    environment:
+      - peer.privateKey=e72187ebcdc91b999b1a0fbdea27a83eddf7faf523f02ac3102a124ea1ccae01
+      - peer.active.0.ip=miner
+      - peer.active.0.port=50501
+      - peer.active.0.nodeId=ef0c660f5fe9131e4cfa43e46d61f696534b908fff0f6011fe57c85c3a9424b1ef0a4f454b9eaae162cb7699abd28e2ffc67b9f2b4ae4d0997eb845a2e0b4d9b
+      - peer.active.1.ip=full1
+      - peer.active.1.port=50501
+      - peer.active.1.nodeId=31406f55bcb3ccd48c9f355852824bd66a50dde50fd150f38efb7dc6df95c929feb9a419269197f7ea5215d09acba7dfda41660b81fb68c6b7cb0d3e6054bdfa
+      - peer.active.2.ip=full3
+      - peer.active.2.port=50501
+      - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
+
+  full3:
+    build: .
+    command: 0.6.2-ORCHID
+    ports:
+      - "14447:4444"
+    env_file:
+      - base.env
+      - full.env
+    environment:
+      - peer.privateKey=418de494ec6e92a0e28976317f37fe35b0a44d2d981eba1074801ca63acb5b56
+      - peer.active.0.ip=miner
+      - peer.active.0.port=50501
+      - peer.active.0.nodeId=ef0c660f5fe9131e4cfa43e46d61f696534b908fff0f6011fe57c85c3a9424b1ef0a4f454b9eaae162cb7699abd28e2ffc67b9f2b4ae4d0997eb845a2e0b4d9b
+      - peer.active.1.ip=full1
+      - peer.active.1.port=50501
+      - peer.active.1.nodeId=31406f55bcb3ccd48c9f355852824bd66a50dde50fd150f38efb7dc6df95c929feb9a419269197f7ea5215d09acba7dfda41660b81fb68c6b7cb0d3e6054bdfa
+      - peer.active.2.ip=full2
+      - peer.active.2.port=50501
+      - peer.active.2.nodeId=9b68cbdc64091625feda30476c2c7b10ba43a69b345fbe146f7934f2752c115481f1ec6acb2d5e0f65c34d02080debf10d605d7c483a4bf5932004ad7897330a
