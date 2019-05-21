@@ -16,7 +16,7 @@ $ docker-compose up -d
 ## Environment:
   * 4 full **regtest** nodes
   * _Second fork_ network upgrade enabled from block number 1000
-  * JSONRPC interface enabled for each node, bindend to local ports from 14444 (miner node) to 14447
+  * JSONRPC interface enabled for each node, bindend to local ports from 14440 (miner node) to 14443
   * All nodes accept `eth` JSONRPC calls
   * **miner** node is an _autominer_
   * **miner** node accepts `evm` JSONRPC calls (e.g. `evm_mine`)

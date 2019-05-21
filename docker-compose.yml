@@ -7,7 +7,7 @@ services:
       - envs/base.env
       - envs/miner.env
     ports:
-      - "14444:4444"
+      - "14440:4444"
     environment:
       - peer.privateKey=b05323ca7b2892ada7c18ba9ff5993b9b1f4aac2f288bdc08399ba4bbb0038ee
       - peer.active.0.ip=full1
@@ -23,7 +23,7 @@ services:
   full1:
     build: .
     ports:
-      - "14445:4444"
+      - "14441:4444"
     env_file:
       - envs/base.env
       - envs/full.env
@@ -43,7 +43,7 @@ services:
     build: .
     command: 0.6.2-ORCHID
     ports:
-      - "14446:4444"
+      - "14442:4444"
     env_file:
       - envs/base.env
       - envs/full.env
@@ -63,7 +63,7 @@ services:
     build: .
     command: 0.6.2-ORCHID
     ports:
-      - "14447:4444"
+      - "14443:4444"
     env_file:
       - envs/base.env
       - envs/full.env
