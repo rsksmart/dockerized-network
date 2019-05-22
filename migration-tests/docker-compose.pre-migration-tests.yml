@@ -1,0 +1,6 @@
+version: '3.3'
+
+services:
+  tests:
+    build: ./migration-tests
+    command: npm run test-pre-migration

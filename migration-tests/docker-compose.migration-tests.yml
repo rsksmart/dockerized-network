@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  miner:
+    command: 0.7.0-SNAPSHOT
+
+  full1:
+    command: 0.6.2-ORCHID
+    volumes:
+      - full1-db:/root/.rsk/
+    environment:
+      - rpc.providers.web.http.hosts.1=full1
+
+  full2:
+    command: 0.6.2-ORCHID
+    environment:
+      - rpc.providers.web.http.hosts.1=full2
+
+  full3:
+    command: 0.6.2-ORCHID
+    environment:
+      - rpc.providers.web.http.hosts.1=full3
+
+volumes:
+  full1-db:

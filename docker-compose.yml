@@ -41,7 +41,6 @@ services:
 
   full2:
     build: .
-    command: 0.6.2-ORCHID
     ports:
       - "14442:4444"
     env_file:
@@ -61,7 +60,6 @@ services:
 
   full3:
     build: .
-    command: 0.6.2-ORCHID
     ports:
       - "14443:4444"
     env_file:

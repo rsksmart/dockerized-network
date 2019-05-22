@@ -11,10 +11,10 @@ You must provide two rskj builds:
   * `rskj-core-0.6.2-ORCHID-all.jar`
   * `rskj-core-0.7.0-SNAPSHOT-all.jar`
 
-Once in place, you can build the environment with:
+Once in place, you can run the tests with:
 
 ```shell
-$ docker-compose up -d
+$ ./test.sh
 ```
 
 ## Environment:
