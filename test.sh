@@ -1,3 +1,6 @@
 #!/usr/bin/env sh
+set -ex
 
-sh migration-tests/test.sh
+# disabled until we fix the environment to work with both tests
+# sh migration-tests/test.sh
+sh wasabi-opcodes/test.sh
