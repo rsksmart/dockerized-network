@@ -8,8 +8,8 @@ RUN mkdir /rskj/logs && \
     ln -sf /dev/stdout /rskj/logs/rsk.log
 
 COPY ./rskj-core-0.6.2-ORCHID-all.jar .
-COPY ./rskj-core-0.7.0-SNAPSHOT-all.jar .
+COPY ./rskj-core-1.0.0-PREVIEW-all.jar .
 COPY ./scripts/entrypoint.sh .
 
 ENTRYPOINT ["bash", "entrypoint.sh"]
-CMD ["0.7.0-SNAPSHOT"]
+CMD ["1.0.0-PREVIEW"]
