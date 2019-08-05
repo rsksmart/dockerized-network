@@ -3,4 +3,5 @@ set -ex
 
 # disabled until we fix the environment to work with both tests
 # sh migration-tests/test.sh
-sh wasabi-opcodes/test.sh
+# sh wasabi-opcodes/test.sh
+sh smoke-tests/test.sh

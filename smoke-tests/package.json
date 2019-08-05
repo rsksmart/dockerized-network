@@ -1,0 +1,20 @@
+{
+  "name": "core-smoke-tests",
+  "version": "0.0.1",
+  "main": "smoke-test.js",
+  "scripts": {
+    "smoke-test": "mocha smoke-test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.0",
+    "path": "^0.12.7",
+    "solc": "^0.5.10",
+    "web3": "1.0.0-beta.55"
+  },
+  "devDependencies": {},
+  "description": ""
+}
