@@ -2,7 +2,10 @@ version: '3.3'
 
 services:
   miner: 
-    build: .
+    build:
+      context: . 
+      args:
+        - arg_branch=master
     env_file:
       - envs/base.env
       - envs/miner.env
@@ -21,7 +24,10 @@ services:
       - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
 
   full1:
-    build: .
+    build:
+      context: . 
+      args:
+        - arg_branch=WASABI-1.1.0
     ports:
       - "14441:4444"
     env_file:
@@ -40,8 +46,10 @@ services:
       - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
 
   full2:
-    build: .
-    command: 0.6.2-ORCHID
+    build:
+      context: . 
+      args:
+        - arg_branch=WASABI-1.1.0
     ports:
       - "14442:4444"
     env_file:
@@ -60,8 +68,10 @@ services:
       - peer.active.2.nodeId=20f7d10dad7afc6c6927b2238e143de41ee411d6f82ab1c1276d54ab14500054f2179c4501941cc70222f9f36e8f4ae28c7d95ec10cd3c914b21f1a67bf54bff
 
   full3:
-    build: .
-    command: 0.6.2-ORCHID
+    build:
+      context: . 
+      args:
+        - arg_branch=WASABI-1.0.2
     ports:
       - "14443:4444"
     env_file:
