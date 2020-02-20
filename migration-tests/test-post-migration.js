@@ -46,7 +46,7 @@ describe('Migration tests', function () {
     expect(blockNumber).to.be.greaterThan(51);
   });
 
-  it('Activate wasabi at block number 65', async () => {
+  it('Activate 2.0(HF) at block number 65', async () => {
     for (let i = 0; i < 10; i++) {
       await web3Miner.evm.mine();
     }
@@ -54,7 +54,7 @@ describe('Migration tests', function () {
     expect(blockNumber).to.be.greaterThan(64);
   });
 
-  it('Orchid nodes stuck at block 64', async () => {
+  it('WASABI nodes stuck at block 64', async () => {
     const blockNumber2 = await web3Full2.eth.getBlockNumber();
     expect(blockNumber2).to.be.equal(64);
     const blockNumber3 = await web3Full3.eth.getBlockNumber();
