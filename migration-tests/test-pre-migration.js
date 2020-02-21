@@ -5,11 +5,14 @@ const Web3 = require('web3');
 const PRIVATE_KEY = '0xc85ef7d79691fe79573b1a7064c19c1a9819ebdbd1faaab1a8ec92344438aaf4'; //cow
 
 describe('Migration tests', function () {
-  this.timeout(10000);
+  this.timeout(20000);
   let web3;
 
   before(async () => {
     web3 = new Web3('http://miner:4444', null, {transactionConfirmationBlocks: 1});
+    web3Full1 = new Web3('http://full1:4444', null, {transactionConfirmationBlocks: 1});
+    web3Full2 = new Web3('http://full2:4444', null, {transactionConfirmationBlocks: 1});
+    web3Full3 = new Web3('http://full3:4444', null, {transactionConfirmationBlocks: 1});
     web3.evm = {
       mine: () => web3.currentProvider.send('evm_mine')
     };
@@ -36,13 +39,25 @@ describe('Migration tests', function () {
     }
   });
 
-  it('Should advance until block 50', async () => {
+  it('Network should advance until block 50', async () => {
     let blockNumber = await web3.eth.getBlockNumber();
     for (let i = blockNumber; i < 50; i++) {
       await web3.evm.mine();
     }
     blockNumber = await web3.eth.getBlockNumber();
+    let blockNumber3 = await web3Full3.eth.getBlockNumber();
+    let blockNumber2 = await web3Full2.eth.getBlockNumber();
+    let blockNumber1 = await web3Full1.eth.getBlockNumber();
+    expect(blockNumber1).to.be.equal(50);
+    expect(blockNumber2).to.be.equal(50);
+    expect(blockNumber3).to.be.equal(50);
     expect(blockNumber).to.be.equal(50);
+    console.log("-------------------------------------------------------------------");
+    console.log("    Miner node (Papyrus 2.0) is at block:" + blockNumber) ;
+    console.log("    Full node # 1 (WASABI 1.3.0) is at block:" + blockNumber1) ;
+    console.log("    Full node # 2 (WASABI 1.2.1) is at block:" + blockNumber2) ;
+    console.log("    Full node # 3 (WASABI 1.3.0) is at block:" + blockNumber3) ;
+    console.log("-------------------------------------------------------------------");
   })
 
   const signAndSendTransaction = async (account, destination, hexData) => {

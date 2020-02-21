@@ -3,6 +3,9 @@ version: '3.3'
 services:
   full1:
     command: 2.0.0-SNAPSHOT
+    environment:
+      - blockchain.config.hardforkActivationHeights.wasabiPlusOne=65
+
 
   tests:
     build: ./migration-tests
