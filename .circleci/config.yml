@@ -26,9 +26,14 @@ jobs:
                     ./gradlew clean build -x test
                     cp ~/rsksmart/rskj-PAPYRUS-2.1.0/rskj-core/build/libs/rskj-core-2.1.0-PAPYRUS-all.jar ~/tmp
       - run:
-          name: Execute Tests
+          name: Execute Migration Tests
           command: |
                     cd ~/tmp
-                    sh test.sh
+                    sh migration-tests/test.sh
+      - run:
+          name: Execute Truffle Tests
+          command: |
+                    cd ~/tmp
+                    sh truffle-tests/test.sh
 
 
