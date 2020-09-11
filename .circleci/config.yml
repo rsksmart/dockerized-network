@@ -1,12 +1,11 @@
 version: 2.1
 jobs:
-  Truffle Tests:
+  build:
     docker:
-      # specify the version you desire here
       - image: circleci/openjdk:8-jdk
     working_directory: ~/tmp
     steps:
-      - checkout # special step to check out source code to working directory
+      - checkout
       - setup_remote_docker
       - run:
           name: Clone and Build RSKj (Master)
