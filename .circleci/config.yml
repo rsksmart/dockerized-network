@@ -25,7 +25,7 @@ jobs:
                     cd ~/rsksmart/rskj-PAPYRUS-2.1.0/
                     ./configure.sh
                     ./gradlew clean build -x test
-                    cp ~/rsksmart/rskj-master/rskj-core/build/libs/rskj-core-2.1.0-PAPYRUS-all.jar ~/tmp
+                    cp ~/rsksmart/rskj-PAPYRUS-2.1.0/rskj-core/build/libs/rskj-core-2.1.0-PAPYRUS-all.jar ~/tmp
       - run:
           name: Execute Tests
           command: |
