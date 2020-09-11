@@ -21,7 +21,7 @@ jobs:
           name: Clone and Build RSKj  (PAPYRUS-2.1.0)
           command: |
                     GIT_SSH_COMMAND='ssh -i ~/.ssh/id_rsa_fingerprint'
-                    git clone -b git@github.com:rsksmart/rskj.git ~/rsksmart/rskj-PAPYRUS-2.1.0
+                    git clone -b PAPYRUS-2.1.0 git@github.com:rsksmart/rskj.git ~/rsksmart/rskj-PAPYRUS-2.1.0
                     cd ~/rsksmart/rskj-PAPYRUS-2.1.0/
                     ./configure.sh
                     ./gradlew clean build -x test
