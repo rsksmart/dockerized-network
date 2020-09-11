@@ -2,7 +2,7 @@ version: '3.3'
 
 services:
   full1:
-    command: 1.0.0-PREVIEW
+    command: 2.2.0-SNAPSHOT
 
   tests:
     build: ./migration-tests

@@ -2,22 +2,22 @@ version: '3.3'
 
 services:
   miner:
-    command: 0.7.0-SNAPSHOT
+    command: 2.1.0-PAPYRUS
 
   full1:
-    command: 0.6.2-ORCHID
+    command: 2.1.0-PAPYRUS
     volumes:
       - full1-db:/root/.rsk/
     environment:
       - rpc.providers.web.http.hosts.1=full1
 
   full2:
-    command: 0.6.2-ORCHID
+    command: 2.1.0-PAPYRUS
     environment:
       - rpc.providers.web.http.hosts.1=full2
 
   full3:
-    command: 0.6.2-ORCHID
+    command: 2.2.0-SNAPSHOT
     environment:
       - rpc.providers.web.http.hosts.1=full3
 
